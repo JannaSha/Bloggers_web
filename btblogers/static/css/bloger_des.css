@@ -1,0 +1,63 @@
+.container-fluid {
+    font-family: 'Ubuntu', sans-serif;
+}
+
+.bloger-nikname {
+  margin-left: 3%;
+
+  color: #523555;
+  font-size: 40px;
+}
+
+.img-bloger {
+  margin-left: -1%;
+}
+
+.quote-footer {
+  color: #89c7fb;
+}
+
+.icons-inst, .icons-youtube {
+  margin-top: 1.6%;
+}
+
+.item-title {
+  color: #523555;
+}
+
+.item-icon {
+  display: inline-block;
+  position: relative;
+}
+
+.item-icon
+.item-description {
+  display: block;
+  position: absolute;
+
+  top:0;
+  width: 100%;
+  box-sizing:border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+
+  color: #efebf0;
+  padding:10px;
+  background-color:rgba(82, 53, 85, 0.5);
+}
+
+.item-icon a {
+  color: #efebf0;
+  font-family:Arial, Helvetica, sans-serif;
+  font-size:18px;
+}
+
+.item-icon span {
+  font-size:12px; 
+}
+
+.product-img {
+  height: 180px;
+  width: 250px;
+}

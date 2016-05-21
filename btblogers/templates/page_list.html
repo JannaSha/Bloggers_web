@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block head %}
+{{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/page_list.css' %}">
+{% endblock head %}
+
+{% block body %}
+  <h1 class="page-name">{% block page_name %}{% endblock page_name %}</h1><hr>
+  <div class="row">
+    <div class="item-name col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      {% block name_list %}
+      {% endblock name_list %}
+    </div>
+    <div class="col-xs-6 col-sm-6 col-md-6 col-lg-6">
+      <img class="img-girl img-responsive center-block" src="{% static 'img/girl4.jpg' %}"/>
+    </div>
+  </div>
+{% endblock body %}

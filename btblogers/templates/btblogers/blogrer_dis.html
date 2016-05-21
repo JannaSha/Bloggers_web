@@ -1,0 +1,97 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block head %}
+{{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/bloger_des.css' %}">
+{% endblock head %}
+
+{% block title %}{{ bloger.nikname }}{% endblock title %}
+
+{% block body %}
+  <div class="container-fluid">
+    <div class="bloger-head col-xs-12 col-sm-12 col-md-3 col-lg-3">
+      <h1 class="bloger-nikname">{{ bloger.nikname }}</h1>
+    </div>
+    <div class="icons-youtube col-xs-3 col-sm-3 col-md-1 col-lg-1">
+      <a href="{{ bloger.url_youtube }}">
+        <img class="link-icon img-responsive" src="{% static 'img/youtube.jpg' %}" height="40" width="40"/>
+      </a>
+    </div>
+    <div class="icons-inst col-xs-9 col-sm-9 col-md-8 col-lg-8">
+      <a href="{{ bloger.url_instagramm }}">
+        <img class="img-responsive link-icon" src="{% static 'img/instagram.jpg' %}" height="40" width="40"/>
+      </a>
+    </div>
+
+    <div class="bloger-description-row col-xs-12 col-sm-12 col-md-12 col-lg-12"><hr>
+      <div class="img-bloger col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <img src="{{ bloger.foto.url }}" class="img-responsive img-thumbnail " height="650" width="640" alt='PHOTO'/>
+      </div>
+      <div class="description-bloger col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <blockquote class="quote-bloger">
+            {{ bloger.discription }}<footer class="quote-footer">{{ bloger.firs_name }} {{ bloger.sur_name }}</footer>
+          </blockquote>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h4 class="info-bloger">
+            {{ bloger.firs_name }} {{ bloger.sur_name }}, {% if bloger.age %} {{ bloger.age }} лет {% endif %}
+            {{ bloger.city }}, {{ bloger.country }}.
+          </h4>
+        </div>
+        <div class="col-md-12 col-lg-12">
+          <div class="gif" scr="lip.gif"></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloger-products-row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="good-products col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <h2 class="item-title">Любимые продукты</h2><hr>
+        {% if video_list.0.id_good_products.all %}
+          {% for product in video_list.0.id_good_products.all %}
+           <div class="item-icon">
+              <img src="{{ product.foto.url }}" class="product-img img-rounded img-responsive left-block"/>
+              <div class="item-description">
+                <h6><a class="item-link" href="{{ product.get_absolute_url }}">{{ product.brand_name }} {{ product.name }}</a></h6>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+      <div class="bad-products col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <h2 class="item-title">Непонравившиеся продукты</h2><hr>
+        {% if video_list.1.id_bad_products.all %}
+          {% for product in video_list.1.id_bad_products.all %}
+           <div class="item-icon">
+              <img src="{{ product.foto.url }}" class="product-img img-rounded img-responsive left-block"/>
+              <div class="item-description">
+                <h6><a class="item-link" href="{{ product.get_absolute_url }}">{{ product.brand_name }} {{ product.name }}</a></h6>
+              </div>
+            </div>
+          {% endfor %}
+        {% endif %}
+      </div>
+    </div>
+
+    <div class="bloger-video-row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <h2 class="item-title">Видео блогера</h2><hr>
+      {% if video_list %}
+        {% for video in video_list %}
+          <div class="video-icon col-xs-6 col-sm-6 col-md-3 col-lg-3">
+            <div class="item-icon">
+              <img src="{% static 'img/elena864.jpg' %}" class="video-img img-rounded img-responsive left-block">
+              <div class="item-description">
+                <h6><a class="item-link" href="{{ video.get_absolute_url }}">{{ video.video_name }}</a></p>
+                <a href="{{ video.get_absolute_url }}"></a></h6>
+                <span>{{ video.date_video|date:"F j, Y" }}</span>
+              </div>
+            </div>
+          </div>
+        {% endfor %}
+      {% endif %}
+    </div>
+  </div>
+{% endblock body %}

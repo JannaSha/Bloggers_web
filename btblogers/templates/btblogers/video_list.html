@@ -1,0 +1,31 @@
+{% extends 'page_list.html' %}
+
+
+{% load staticfiles %}
+{% block head %}
+{{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/video_list.css' %}">
+{% endblock head %}
+
+{% block title %}Видео{% endblock title %}
+
+
+{% block page_name %}Видео{% endblock page_name %}
+
+{% block name_list %}
+  {% if video_list %}
+    <ul>
+      {% for video in video_list %}
+        <li><a class="video-name" href = "{{ video.get_absolute_url }}">{{ video.video_name }}</a>
+          <ul>
+            {% for author in video.id_blogers.all %}
+              <li><a class="video-author" href="{{ author.get_absolute_url }}">{{ author.nikname }}</a></li>
+            {% endfor %}
+          </ul>
+        </li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>Нет видео</h2>
+  {% endif %}
+{% endblock name_list %}

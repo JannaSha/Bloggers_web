@@ -1,0 +1,22 @@
+{% extends 'page_list.html' %}
+
+{% load staticfiles %}
+{% block head %}
+{{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/bloger_list.css' %}">
+{% endblock head %}
+{% block title %}Блогеры{% endblock title %}
+
+{% block page_name %}Блогеры{% endblock page_name %}
+
+{% block name_list %}
+  {% if list_blogers %}
+    <ul>
+      {% for item in list_blogers %}
+        <li><a class="bloger-name" href = "{{ item.get_absolute_url }}">{{ item.nikname}}</a> : {{item.firs_name}} {{item.sur_name}}</li>
+      {% endfor %}
+    </ul>
+  {% else %}
+    <h2>Нет блогеров</h2>
+  {% endif %} 
+{% endblock name_list %}
