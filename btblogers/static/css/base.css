@@ -1,0 +1,115 @@
+.head-line {
+  width: 100%;
+  background-color: #231726;
+  color: #f5f4f6;
+}
+
+.page-header {
+  background: url("img/back_white.jpg") no-repeat center center fixed;
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
+  background-size: cover;
+  margin: 0%;
+  padding: 0%;
+  width: 100%;
+}
+
+.title {
+  padding-left: 0%;
+  padding-top: 1%;
+  padding-bottom: 1%;
+}
+
+.title a {
+  color: #900273;
+  font-style: normal;
+  font-family: 'Raleway', sans-serif;
+  font-size: 40px;
+  margin-left: 2%;
+}
+
+.search {
+  text-align: right;
+  margin-top: 1.5%;
+  padding-top: 1%;
+  padding-bottom: 
+}
+
+.search-text-field {
+  font-size: 20px;
+  font-family: 'Ubuntu', sans-serif;  
+  border-width: medium;
+  border-color: #900273;
+  border-style: outset;
+  border-radius: 5px;
+ -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    opacity: 0.7;
+}
+
+.search-button {
+    font-size: 17px;
+    font-family: 'Ubuntu', sans-serif;
+    text-align: center;
+
+    border-width: medium;
+    border-color: #900273;
+    border-style: outset;
+    background: #900273;
+
+    color: #F5F4F6;
+    border-radius: 5px;
+    -moz-border-radius: 5px;
+    -webkit-border-radius: 5px;
+    -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+    text-shadow: 0 -1px 1px rgba(0,0,0,0.5);
+    cursor: pointer;
+}
+
+.row {
+    position: absolute;
+    width: 100%;
+    font-size: 20px;
+}
+
+.table-links a {
+    color: #900273;
+    margin-left: 10%;
+    font-size: 20px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+a {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+.table-links {
+  background-color: #f4Ebf4;
+}
+
+.gif  {
+  width: 50px;
+  height: 180px;
+  display: block;
+  background: url("img/lip.jpg") no-repeat;
+  background-attachment: scroll;
+  border: none;
+  text-decoration: none !important;
+  margin-left: 95%;
+  margin-top: 10%;
+}
+
+.head-line {
+  text-align: right;
+  padding-right: 1%;
+}
+
+    

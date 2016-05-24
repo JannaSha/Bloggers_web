@@ -1,0 +1,59 @@
+{% load staticfiles %}
+
+<html>
+  <head>
+  {% block head %}
+    <link rel="stylesheet" href="{% static 'css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="{% static 'css/bootstrap-theme.min.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/font-awesome.css' %}"> 
+    <link rel="stylesheet" href="{% static 'css/bootstrap-social.css' %}">
+    <script src="https://code.jquery.com/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.4/js/bootstrap.min.js"></script>
+    <script src="{% static 'js/bootstrap.js' %}"></script>
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/bootstrap/3.2.0/css/bootstrap-theme.min.css">
+    <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+    <link href='https://fonts.googleapis.com/css?family=Raleway:400,500' rel='stylesheet' type='text/css'>
+    <link href='https://fonts.googleapis.com/css?family=Ubuntu:400,400italic&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
+
+  <title>{% block title %}Beauty{% endblock %}</title>
+  {% endblock %}
+  </head>
+  
+  <body>
+    {% block search %}
+      <div class="head-line">
+        2016
+      </div>
+
+      <div class="page-header container">
+        <div calss="row">
+          <div class="title col-xs-4 col-sm-4 col-md-4 col-lg-4">
+            <h1><a href="http://127.0.0.1:8000/btblogers/index/">Beauty Blogers</a></h1></div>
+          <div class="search col-xs-8 col-sm-8 col-md-8 col-lg-8">
+            <form role="form" class="form-inline" action="" method="get">
+              <div class="form-group">
+                <input class="search-text-field .form-control" type="text" name="q" placeholder="Введите запрос">
+              </div>
+              <button class="search-button btn btn-xs" type="submit">Найти</button>
+            </form>
+          </div>
+        </div>
+      </div>
+
+      <div class="table-responsive">
+        <table class="table-links table table-hover table-condensed">
+        <tr>
+            <th><a href="http://127.0.0.1:8000/btblogers/blogers_list/">Блогеры</a></th>
+            <th><a href="http://127.0.0.1:8000/btblogers/product_list/">Продукты</a></th>
+            <th><a href="http://127.0.0.1:8000/btblogers/brands_list/">Бренды</a></th>
+            <th><a href="http://127.0.0.1:8000/btblogers/video_list/">Видео</a></th>
+        </tr>
+        </table>
+      </div>
+    {% endblock search %}
+  
+    {% block body %}
+    {% endblock %}
+  </body>
+</html>

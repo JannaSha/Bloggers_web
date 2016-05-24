@@ -1,0 +1,35 @@
+.container-fluid {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.product-name,
+.product-comments,
+.product-video {
+  color: #523555;
+  font-size: 40px;
+}
+
+.product-name h1 {
+  margin-left: 3%;
+}
+
+.product-quote {
+  color: #523555;
+}
+
+.product-add-info {
+  font-size: 20px;
+}
+
+.field-content,
+.product-add-info a {
+  color: #89c7fb;
+}
+
+.product-video {
+  margin-top: 2%;
+}
+
+.product-comments {
+  margin-top: 2%;
+}

@@ -1,0 +1,32 @@
+.row {
+  width: 100%;
+}
+
+.item-title {
+  background: linear-gradient(to bottom right,  #FFF, #f4ebf4);
+  width: 100%;
+  padding: 0%;
+}
+
+.page-name {
+  text-align: left;
+  color: #523555;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 35px;
+  margin-left: 5%;
+}
+
+.item-name {
+  margin-top: 1%;   
+  text-align: left;
+}
+
+.img-girl {
+  margin-top: 1%;
+  text-align: right;
+}
+
+h2 {
+  color: #900273;
+  font-family: 'Ubuntu', sans-serif;
+}

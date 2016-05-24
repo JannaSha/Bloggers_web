@@ -1,0 +1,40 @@
+.video-name {
+  margin-left: 3%;
+
+  color: #523555;
+  font-size: 30px;
+}
+
+.container-fluid {
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.icons-youtube {
+  margin-top: 1.6%;
+}
+
+.bloger-products-row {
+  margin-top: 3%;
+}
+
+.video-quote {
+  color: #523555;
+}
+
+.quote-footer, 
+.authors a,
+.video-date span {
+  color: #89c7fb;
+}
+
+.authors,
+.video-date {
+  font-size: 20px;
+}
+
+.no-product {
+  color: #89c7fb;
+  margin-left: 5%;
+  padding-bottom: 2%;
+}
+

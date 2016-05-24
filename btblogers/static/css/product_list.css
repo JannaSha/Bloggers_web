@@ -1,0 +1,27 @@
+.product-dropmenu {
+  margin-left: 3%;
+  margin-top: 2%;
+}
+
+.button-product {
+  text-align: left;
+  color: #900273;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 18px;
+}
+
+.product-list {
+  font-family: 'Ubuntu', sans-serif;
+  background-color: rgba(244, 235, 244, 0.9);
+  color: #900273;
+}
+
+.product-list {
+  color: #900273;
+  font-size: 20px;
+}
+
+.link-product {
+  color: #900273;
+  font-size: 20px;
+}

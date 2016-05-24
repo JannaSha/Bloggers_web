@@ -1,0 +1,72 @@
+body {
+  position: absolute;
+
+  width: 100%;
+
+  background-color: #FFFFFF;
+  font-family: 'Ubuntu', sans-serif;
+}
+
+.item {
+  background: #f4Ebf4;
+  height: 300px !important;
+}
+
+.carousel-caption {
+  margin-bottom: -1.5%;
+}
+
+.carousel-indicators {
+  margin-bottom: -1%;
+}
+
+.bloger-imd-title {
+  width: 500;
+  height: 250;
+}
+
+.bloger-foto {
+  width: 430;
+  height: 260;
+}
+
+.item-icon {
+  display: inline-block;
+  position: relative;
+
+  margin-top: 0.5%;
+  margin-left: 15%;
+}
+
+.item-icon
+.item-description {
+  display: block;
+  position: absolute;
+
+  top: 0;
+  width: 100%;
+  box-sizing:border-box;
+  -moz-box-sizing: border-box;
+  -webkit-box-sizing: border-box;
+  box-sizing: border-box; 
+
+  padding-bottom: 10%;
+
+  color: #efebf0;
+  background-color:rgba(82, 53, 85, 0.5);
+}
+
+.item-description {
+  margin-top: 5%;
+}
+
+.item-description h4 {
+  margin-left: 3%;
+  text-align: left;
+
+  font-size: 25px;
+}
+
+.item-description a {
+  color: #efebf0;
+}

@@ -1,0 +1,31 @@
+.item-title {
+  width: 100%;
+  padding: 0%;
+}
+
+
+.row {
+  width: 100%;
+}
+
+.brand-icon {
+  margin-left: 5%;
+  margin-top: 2%;
+  width: 200px;
+  height: 200px;
+}
+
+.brands-name {
+  text-align: center;
+  color: #4B2456;
+  font-family: 'Ubuntu', sans-serif;
+}
+ 
+.page-name {
+  text-align: left;
+  color: #523555;
+  font-family: 'Ubuntu', sans-serif;
+  font-size: 35px;
+  margin-left: 5%;
+
+}

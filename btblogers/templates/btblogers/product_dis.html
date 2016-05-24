@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block head %}
+{{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/product_dis.css' %}">
+{% endblock head %}
+{% block title %}{{ product.name }}{% endblock title %}
+
+{% block body %}
+  <div class="container-fluid">
+    <div class="product-name col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <h1> {{ product.name }} от {{ product.brand_name }} </h1><hr>
+    </div>
+
+    <div class="product-description col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      <div class="product-img col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        <img src="{{ product.foto.url }}" height="650" width="640" alt='PHOTO' class="img-responsive img-thumbnail"/>
+      </div>
+      <div class="product-info col-xs-12 col-sm-12 col-md-6 col-lg-6">
+        {% if product.additional_info %}
+          <blockquote class="product-quote">
+            {{ product.additional_info }}
+          </blockquote>
+        {% endif %}
+        <div class="product-add-info col-xs-12 col-sm-12 col-md-12 col-lg-12" > 
+          <ul> 
+            <li>Тип продукта: <span class="field-content">{{ product.type_name }}</span></li>
+            <li>Цвет: <span class="field-content">{{ product.color }}</span></li>
+            <li>Средняя цена: <span class="field-content">{{ product.price }}</span></li>
+            <li> <a href={{ product.url }}>Ссылка на продукт</a></li>
+            <li>Оценка продукта пользователями сайта: <span class="field-content">{{ product.mark }}</span></li>
+          </ul>
+        </div>
+      </div>
+
+      <div class="product-video col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h1>Видео, в которых упонянался продукт</hr><hr>
+      </div>
+
+      <div class="product-comments col-xs-12 col-sm-12 col-md-12 col-lg-12">
+        <h1>Комментарии к продукту<h1><hr>
+      </div>
+    </div>
+  </div>
+
+
+{% endblock body %}

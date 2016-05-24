@@ -1,0 +1,27 @@
+{% extends 'page_list.html' %}
+
+{% load staticfiles %}
+{% block head %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/product_list.css' %}">
+{% endblock head %}
+
+{% block title %}Продукты{% endblock title %}
+
+{% block page_name %}Продукты{% endblock page_name %}
+
+{% block name_list %}
+  {% for key, value in product_dictionary.items %}
+    <div class="product-dropmenu dropup">
+      <button class="button-product btn btn-link dropdup-toggle" type="button" data-toggle="dropdown">{{ key }}</button>
+      {% if value %}
+        <ul class="product-list dropdown-menu pull-left">
+          {% for product in value %}
+            <li class="link-product"><a href="{{ product.get_absolute_url }}">{{ product.name }}: {{ product.brand_name }}</a></li>
+          {% endfor %}
+        </ul>
+      {% endif %}
+    </div>
+  {% endfor %}
+{% endblock name_list %}
+

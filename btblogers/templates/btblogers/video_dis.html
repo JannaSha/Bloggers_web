@@ -1,0 +1,123 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+{% block head %}
+{{ block.super }}
+<link rel="stylesheet" href="{% static 'css/base.css' %}">
+<link rel="stylesheet" href="{% static 'css/video_des.css' %}">
+<link rel="stylesheet" href="{% static 'css/bloger_des.css' %}">
+
+{% endblock head %}
+{% block title %}{{ video.video_name }}{% endblock title %}
+
+{% block body %}
+  <div class="container-fluid">
+    <div class="video-head col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <h1 class="video-name">{{ video.video_name }}</h1>
+    </div>
+    <div class="icons-youtube col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <a href="{{ video.url_youtube }}">
+        <img class="link-icon img-responsive" src="{% static 'img/youtube.jpg' %}" height="40" width="40"/>
+      </a>
+    </div>
+
+    <div class="video-description-row col-xs-12 col-sm-12 col-md-12 col-lg-12"><hr>
+      <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        <div class="embed-responsive embed-responsive-16by9 ">
+          <iframe class="embed-responsive-item" src="{{ video.html_video }}" height="315" width="560" frameborder="0" allowfullscreen=""></iframe>
+        </div>
+      </div>
+      <div class="video-info col-xs-12 col-sm-6 col-md-6 col-lg-6">
+        {% if video.discription_video %}
+          <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+            <blockquote class="video-quote">
+              {{ video.discription_video }}
+              <footer class="quote-footer">
+                {% for author in video.id_blogers.all %} 
+                  {{ author.nikname }}
+                {% endfor %}
+              </footer>
+            </blockquote>
+          </div>
+        {% endif %}
+        <div class="authors col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <ul>
+            <li>Авторы:
+              <ul>
+                {% for author in video.id_blogers.all %} 
+                  <li><a href="{{ author.get_absolute_url }}">{{ author.nikname }}</a></li>
+                {% endfor %}
+              </ul>
+            </li>
+            <li><h6 class="video-date">Дата выхода: <span>{{ video.date_video }}</span></h6></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="bloger-products-row col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      {% if video.id_good_products.all and video.id_bad_products.all %}
+        <div class="good-products col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <h2 class="item-title">Понравившиеся продукты</h2><hr>
+          {% for product in video.id_good_products.all %}
+            <div class="item-icon">
+              <img src="{{ product.foto.url }}" class="product-img img-rounded img-responsive left-block"/>
+              <div class="item-description">
+                <h6><a class="item-link" href="{{ product.get_absolute_url }}">{{ product.brand_name }} {{ product.name }}</a></h6>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+        <div class="bad-products col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <h2 class="item-title">Непонравившиеся продукты</h2><hr>
+          {% for product in video.id_bad_products.all %}
+            <div class="item-icon">
+              <img src="{{ product.foto.url }}" class="product-img img-rounded img-responsive left-block"/>
+              <div class="item-description">
+                <h6><a class="item-link" href="{{ product.get_absolute_url }}">{{ product.brand_name }} {{ product.name }}</a></h6>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if not video.id_bad_products.all %}
+        <div class="bad-products col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <h2 class="item-title">Непонравившиеся продукты</h2><hr>
+          <h3 class="no-product">Нет таких продуктов</h3>
+        </div>
+        <div class="good-products col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h2 class="item-title">Понравившиеся продукты</h2><hr>
+          {% for product in video.id_good_products.all %}
+            <div class="item-icon">
+              <img src="{{ product.foto.url }}" class="product-img img-rounded img-responsive left-block"/>
+              <div class="item-description">
+                <h6><a class="item-link" href="{{ product.get_absolute_url }}">{{ product.brand_name }} {{ product.name }}</a></h6>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+      {% if not video.id_good_products.all %}
+        <div class="good-products col-xs-12 col-sm-6 col-md-6 col-lg-6">
+          <h2 class="item-title">Понравившиеся продукты</h2><hr>
+          <h3 class="no-product">Нет таких продуктов</h3>
+        </div>
+        <div class="good-products col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h2 class="item-title">Непонравившиеся продукты</h2><hr>
+          {% for product in video.id_bad_products.all %}
+            <div class="item-icon">
+              <img src="{{ product.foto.url }}" class="product-img img-rounded img-responsive left-block"/>
+              <div class="item-description">
+                <h6><a class="item-link" href="{{ product.get_absolute_url }}">{{ product.brand_name }} {{ product.name }}</a></h6>
+              </div>
+            </div>
+          {% endfor %}
+        </div>
+      {% endif %}
+
+    </div>
+  </div>
+
+{% endblock body %}
