@@ -21,39 +21,42 @@
   </head>
   
   <body>
-    {% block search %}
-      <div class="head-line">
-        2016
-      </div>
-
-      <div class="page-header container">
-        <div calss="row">
-          <div class="title col-xs-4 col-sm-4 col-md-4 col-lg-4">
-            <h1><a href="http://127.0.0.1:8000/btblogers/index/">Beauty Blogers</a></h1></div>
-          <div class="search col-xs-8 col-sm-8 col-md-8 col-lg-8">
-            <form role="form" class="form-inline" action="" method="get">
-              <div class="form-group">
-                <input class="search-text-field .form-control" type="text" name="q" placeholder="Введите запрос">
-              </div>
-              <button class="search-button btn btn-xs" type="submit">Найти</button>
-            </form>
-          </div>
+    <div class="main">
+      {% block search %}
+        <div class="head-line">
+          Shapoval Janna 2016 ©
         </div>
-      </div>
 
-      <div class="table-responsive">
-        <table class="table-links table table-hover table-condensed">
-        <tr>
-            <th><a href="http://127.0.0.1:8000/btblogers/blogers_list/">Блогеры</a></th>
-            <th><a href="http://127.0.0.1:8000/btblogers/product_list/">Продукты</a></th>
-            <th><a href="http://127.0.0.1:8000/btblogers/brands_list/">Бренды</a></th>
-            <th><a href="http://127.0.0.1:8000/btblogers/video_list/">Видео</a></th>
-        </tr>
-        </table>
-      </div>
-    {% endblock search %}
-  
-    {% block body %}
-    {% endblock %}
+        <div class="title page-header col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <h1><a href="/btblogers/index/">Beauty Blogers</a></h1>
+        </div>
+        <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+          <nav role="navigation" class="navbar navbar-default">
+            <div class="navbar-header">
+              <button type="button" data-target="#navbarCollapse" data-toggle="collapse" class="navbar-toggle">
+                <span class="sr-only">Toggle navigation</span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+                <span class="icon-bar"></span>
+              </button>
+              <a href="/btblogers/index/" class="navbar-brand"><img class="nav-imd-title img-rounded img-responsive center-block" src="{% static 'img/lipstick.jpg' %}"/></a>
+            </div>
+            <div id="navbarCollapse" class="collapse navbar-collapse">
+              <ul class="nav navbar-nav">
+                <li><a href="/btblogers/blogers_list/">Блогеры</a></li>
+                <li><a href="/btblogers/product_list/">Продукты</a></li>
+                <li><a href="/btblogers/brands_list/">Бренды</a></li>
+                <li><a href="/btblogers/video_list/">Видео</a></li>
+              </ul>
+            </div>
+          </nav>
+        </div>
+      {% endblock search %}
+    </div>
   </body>
+    
+  {% block body %}
+  {% endblock %}
+
 </html>

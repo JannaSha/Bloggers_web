@@ -11,6 +11,7 @@ urlpatterns = [
     url(r'^video_list/$', views.show_video_list, name='show_video_list'),
     url(r'^brands_list/$', views.show_brands_list, name='show_brands_list'),
     url(r'^index/$', views.show_home_page, name='index'),
+    url(r'comment/new/(\d{1,10000})/$', views.comment_new, name='comment_new'),
    
 ]
 

@@ -23,12 +23,18 @@
   color: #89c7fb;
 }
 
-.icons-inst, .icons-youtube {
+.icons-inst,
+.icons-youtube {
   margin-top: 1.6%;
 }
 
 .item-title {
   color: #523555;
+}
+
+.link-icon-inst {
+  margin-left: 0;
+  text-align: left;
 }
 
 .item-icon {
@@ -44,7 +50,7 @@
   display: block;
   position: absolute;
 
-  top:0;
+  top: 0;
   width: 100%;
   box-sizing:border-box;
   -moz-box-sizing: border-box;
@@ -52,20 +58,25 @@
   box-sizing: border-box; 
 
   color: #efebf0;
-  padding:10px;
+  padding: 5%;
   background-color:rgba(82, 53, 85, 0.5);
 }
 
 .item-icon a {
   color: #efebf0;
-  font-size:18px;
+  font-size: 18px;
 }
 
 .item-icon span {
-  font-size:12px; 
+  font-size: 12px; 
 }
 
 .product-img {
-  height: 180px;
-  width: 250px;
+  width: 200px;
+  height: 200px;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
 }

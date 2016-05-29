@@ -12,87 +12,107 @@
 {% endblock head %}
 {% block title %}Beauty{% endblock title %}
 
+
+
 {% block body %}
-  {% if list_blogers %}
-  <div id="myCarousel" class="carousel slide" data-interval="10000" data-ride="carousel">
-   <ol class="carousel-indicators">
-    <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
-    {% for bloger in list_blogers %}
-      <li data-target="#myCarousel" data-slide-to="{{ bloger.id }}"></li>
-    {% endfor %}
-  </ol>
-    <div class="carousel-inner">
-      <div class="active item">
-        <div class="carousel-caption">
-          <img class="bloger-imd-title img-rounded img-responsive center-block" src="{% static 'img/cover2.jpg' %}"/>
-        </div>
+  <div class="search col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <form role="form" class="form-inline" action="" method="get">
+      <div class="form-group">
+        <input class="search-text-field .form-control" type="text" name="q" placeholder="Введите запрос">
       </div>
-      {% for bloger in list_blogers %}
-      <div class="item">
-        <div class="carousel-caption item-icon">
-          <img class="bloger-foto img-rounded img-responsive center-block" src="{{ bloger.foto.url }}"/>
-          <div class="item-description">
-            <h4><a class="item-link" href="{{ bloger.get_absolute_url }}">{{ bloger.nikname }}</a></h4>
-          </div>
-        </div>
-      </div>
-      {% endfor %}
-    </div>
-    <!-- Навигация для карусели -->
-    <!-- Кнопка, осуществляющая переход на предыдущий слайд с помощью атрибута data-slide="prev" -->
-      <a class="left carousel-control" href="#myCarousel" data-slide="prev"><span class="glyphicon glyphicon-chevron-left"></span></a>
-      <a class="right carousel-control" href="#myCarousel" data-slide="next"><span class="glyphicon glyphicon-chevron-right"></span></a>
+      <button class="search-button btn btn-xs" type="submit">Найти</button>
+    </form>
   </div>
+
+  {% if not blogers and not product and not brands and not video and not errors %}
+    <div class="col-md-12 col-lg-12">
+    </div>
+  {% elif errors %}
+    <div class="col-xs-12 col-sm-12 col-md-6 col-lg-6">
+      <h3 class="error">Пустой запрос</h3>
+    </div>
+  {% else %}  
+    <div class="result-list col-xs-12 col-sm-12 col-md-12 col-lg-12">
+      {% if blogers %}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <p class="amount-res">Найдено {{ blogers|length }} блогера(ов).</p>
+          <ul>
+            {% for bloger in blogers %}
+              <li><a class="result-item" href="{{ bloger.get_absolute_url }}">{{ bloger.nikname }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+      
+      {% if products %}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <p class="amount-res">Найдено {{ products|length }} продуктa(ов).</p>
+          <ul>
+            {% for product in products %}
+              <li><a class="result-item" href="{{ product.get_absolute_url }}">{{ product.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if brands %}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <p class="amount-res">Найдено {{ brands|length }} бренда(ов).</p>
+          <ul>
+            {% for brand in brands %}
+              <li><a class="result-item" href="{{ brand.url }}">{{ brand.name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+
+      {% if video %}
+        <div class="col-xs-12 col-sm-6 col-md-3 col-lg-3">
+          <p class="amount-res">Найдено {{ video|length }} видео.</p>
+          <ul>
+            {% for video in video %}
+              <li><a class="result-item" href="{{ video.get_absolute_url }}">{{ video.video_name }}</a></li>
+            {% endfor %}
+          </ul>
+        </div>
+      {% endif %}
+    </div>
   {% endif %}
 
-  <div id="results-list">
-  {% if errors %}
-    <ul>
-      {% for error in errors %}
-        <li>{{ error }}</li>
-      {% endfor %}
-    </ul>
-    {% endif %}
-
-
-    {% if blogers %}
-      <p>Найдено {{ blogers|length }} блогеров.</p>
-      <ul>
-        {% for bloger in blogers %}
-          <li><a href="{{ bloger.get_absolute_url }}">{{ bloger.nikname }}</a></li>
+  <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
+    <div id="myCarousel" class="carousel slide" data-interval="300000" data-ride="carousel">
+      <ol class="carousel-indicators">
+        <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+        {% for blogers in list_blogers%}
+          <li data-target="#myCarousel" data-slide-to="{{ bloger.id }}"></li>
         {% endfor %}
-      </ul>
-    {% endif %}
+      </ol>   
+    
+      <div class="carousel-inner">
+        <div class="active item">
+          <div class="carousel-caption">
+            <a href="/btblogers/blogers_list/"><img class="active-img img-responsive img-rounded center-block" src="{% static 'img/cover2.jpg' %}"/>
+            <h3>Блогеры</h3></a>
+          </div>
+        </div>
 
-    {% if products %}
-      <p>Найдено {{ products|length }} продуктов.</p>
-      <ul>
-        {% for product in products %}
-          <li><a href="{{ product.get_absolute_url }}">{{ product.name }}</a></li>
+        {% for bloger in list_blogers %}
+          <div class="item">
+            <div class="carousel-caption">
+              <a href="{{ bloger.get_absolute_url }}"><img class="active-img img-responsive img-rounded center-block" src="{{ bloger.foto.url }}"/>
+              <h3>{{ bloger.nikname }}</h3></a>
+            </div>
+          </div>
         {% endfor %}
-      </ul>
-    {% endif %}
 
-    {% if brands %}
-      <p>Найдено {{ brands|length }} брендов.</p>
-      <ul>
-        {% for brand in brands %}
-          <li><a href="{{ brand.url }}">{{ brand.name }}</a></li>
-        {% endfor %}
-      </ul>
-    {% endif %}
-
-    {% if videos %}
-      <p>Найдено {{ videos|length }} видео.</p>
-      <ul>
-        {% for video in videos %}
-          <li><a href="{{ video.get_absolute_url }}">{{ video.video_name }}</a></li>
-        {% endfor %}
-      </ul>
-    {% endif %}
+        <a class="carousel-control left" href="#myCarousel" data-slide="prev">
+          <span class="glyphicon glyphicon-chevron-left"></span>
+        </a>
+        <a class="carousel-control right" href="#myCarousel" data-slide="next">
+          <span class="glyphicon glyphicon-chevron-right"></span>
+        </a>
+      </div>
     </div>
-
-
-  
+  </div>
 
 {% endblock body %}

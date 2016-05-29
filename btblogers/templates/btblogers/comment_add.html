@@ -1,0 +1,27 @@
+{% extends 'page_list.html' %}
+
+
+{% load staticfiles %}
+{% block head %}
+{{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/comment_add.css' %}">
+{% endblock head %}
+
+
+{% block title %}Comment{% endblock title %}
+
+{% block page_name %}Оставить комментарий{% endblock page_name %}
+
+{% block name_list %}
+  <form class="comment-form" method="POST">{% csrf_token %}
+    <div class="form-group">
+      <label for="author">Автор</label>
+      <input class="form-control ath-line" id="author" type="text" name="author" maxlength="50"/>
+    </div>
+    <div class="form-group">
+      <label for="comment">Комментарий</label>
+      <input class="form-control com-line" id="comment" type="text" name="comment" maxlength="500"/>
+    </div>
+    <button type="submit" class="save btn">Сохранить</button>
+  </form>
+{% endblock name_list %}

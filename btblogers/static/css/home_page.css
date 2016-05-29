@@ -1,72 +1,87 @@
 body {
   position: absolute;
-
   width: 100%;
 
   background-color: #FFFFFF;
   font-family: 'Ubuntu', sans-serif;
 }
 
-.item {
-  background: #f4Ebf4;
-  height: 300px !important;
-}
-
-.carousel-caption {
-  margin-bottom: -1.5%;
-}
-
-.carousel-indicators {
-  margin-bottom: -1%;
-}
-
-.bloger-imd-title {
-  width: 500;
-  height: 250;
-}
-
-.bloger-foto {
-  width: 430;
-  height: 260;
-}
-
-.item-icon {
-  display: inline-block;
-  position: relative;
-
-  margin-top: 0.5%;
-  margin-left: 15%;
-}
-
-.item-icon
-.item-description {
-  display: block;
-  position: absolute;
-
-  top: 0;
-  width: 100%;
-  box-sizing:border-box;
-  -moz-box-sizing: border-box;
-  -webkit-box-sizing: border-box;
-  box-sizing: border-box; 
-
-  padding-bottom: 10%;
-
-  color: #efebf0;
-  background-color:rgba(82, 53, 85, 0.5);
-}
-
-.item-description {
-  margin-top: 5%;
-}
-
-.item-description h4 {
-  margin-left: 3%;
+.search {
   text-align: left;
+}
 
+.search-text-field {
+  font-size: 20px;
+  width: 100%;
+  border-width: medium;
+  border-color: #900273;
+  border-style: outset;
+  border-radius: 5px;
+ -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  opacity: 0.7;
+}
+
+.search-button {
+  font-size: 17px;
+  text-align: center;
+
+  border-width: medium;
+  border-color: #900273;
+  border-style: outset;
+  background: #900273;
+
+  color: #F5F4F6;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.5);
+  cursor: pointer;
+}
+
+.amount-res {
+  font-size: 20px;
+  color: #900273;
+}
+
+.result-item {
+  color: #89c7fb;
+}
+
+.img-girl {
+  margin-left:  0%;
+  text-align: left;
+}
+
+.error {
+  margin-right: 5%;
+  text-align: left;
+  
+  color: #a11010;
   font-size: 25px;
 }
 
-.item-description a {
-  color: #efebf0;
+.active-img {
+  width: 60%;
+  height: 70%;
+  text-align: center;
+}
+
+h3 {
+  font-size: 20px;
+  color: #900273;
+}
+
+.item{
+  background-color: #f4Ebf4;
+  text-align: center;
+  height: 400px !important;
+}
+
+.carousel{
+  margin-top: 4%;
 }

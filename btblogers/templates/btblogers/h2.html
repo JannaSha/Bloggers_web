@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% load staticfiles %}
+
+{% block head %}
+  {{ block.super }}
+  <link rel="stylesheet" href="{% static 'css/base.css' %}">
+  <link rel="stylesheet" href="{% static 'css/home_page.css' %}" />
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <script src="//netdna.bootstrapcdn.com/bootstrap/3.3.2/js/bootstrap.min.js"></script>
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script> 
+{% endblock head %}
+{% block title %}Beauty{% endblock title %}

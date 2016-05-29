@@ -33,3 +33,15 @@
 .product-comments {
   margin-top: 2%;
 }
+
+.image {
+  width: 400px;
+  height: 400px;
+}
+
+img {
+  display: block;
+  margin: 0 auto;
+}
+
+

@@ -1,7 +1,11 @@
 # -*- coding: utf8 -*-
 from django.shortcuts import render, get_object_or_404, render_to_response
-from .models import DiscriptionBlogers, Types, Products, Video, Brands
+from .models import DiscriptionBlogers, Types, Products, Video, Brands, Comments
 from django.conf import settings
+from .forms import CommentForm
+from django.shortcuts import redirect
+import datetime
+from django.utils import timezone
 import random
 
 IMG_SIZE = {'height': 400, 'width': 530}
@@ -14,7 +18,7 @@ def show_home_page(request):
     blogers = []
     products = []
     brands = []
-    videos = []
+    video = []
     if 'q' in request.GET:
         q = request.GET['q']
         if not q:
@@ -23,9 +27,9 @@ def show_home_page(request):
             blogers = DiscriptionBlogers.objects.filter(nikname__icontains=q)
             products = Products.objects.filter(name__icontains=q)
             brands = Brands.objects.filter(name__icontains=q)
-            videos = Video.objects.filter(video_name__icontains=q)
+            video = Video.objects.filter(video_name__icontains=q)
     context = {'errors': errors, 'blogers': blogers, 'products':products, 
-                    'brands':brands, 'videos':videos, 'list_blogers':list_blogers}
+                    'brands':brands, 'video':video, 'list_blogers':list_blogers}
     return render_to_response('btblogers/home_page.html', context)
 
 def show_list_blogers(request):
@@ -43,6 +47,8 @@ def show_bloger(request, name):
     bloger = get_object_or_404(DiscriptionBlogers, nikname=name)
     video_list = Video.objects.filter(id_blogers=bloger.id)
     video_list_img = []
+    number_video = 0
+    video_list_dis = None
     video_list_url = video_list.values('url_youtube')
     for video in video_list_url:
         temp = video.get('url_youtube').split("=")
@@ -52,7 +58,6 @@ def show_bloger(request, name):
     for i in range(0, len(video_list_url)):
         dis = {'img_url' : video_list_img[i], 'video_obj':video_list[i]}
         video_list_dis.append(dis)
-    number_video = random.randint(0, len(video_list) - 1)
     context = {'bloger':bloger, 'video_list':video_list_dis, 
                 'img_size':IMG_SIZE, 'number_video':number_video}
     return render(request, 'btblogers/blogrer_dis.html', context)
@@ -69,7 +74,12 @@ def show_product_list(request):
 
 def show_product(request, id_p):
     product = get_object_or_404(Products, id=id_p)
-    context = {'product':product}
+    product1 = Products.objects.filter(id=id_p)
+    comments_id = product1.values('id_comments')
+    comments = []
+    for comment in comments_id:
+        comments.append(Comments.objects.filter(id=comment['id_comments']))
+    context = {'product':product, 'comment':comments}
     return render(request, 'btblogers/product_dis.html', context)
 
 
@@ -90,6 +100,19 @@ def show_brands_list(request):
     context = {'brands_list':list_brand, 'img_size':size_img}
     return render(request, 'btblogers/brands_list.html', context)
 
+def comment_new(request, id_product):
+    if request.method == 'POST':
+        form = CommentForm(request.POST)
+        if form.is_valid:
+            comment = form.save(commit=False)
+            comment.date_comment = timezone.now()
+            comment.save()
+            product = get_object_or_404(Products, id=id_product)
+            product.id_comments.add(comment.id)
+            return redirect('/btblogers/product/' + id_product + '/', id=id_product)
+    else:
+        form = CommentForm()
+    return render(request, 'btblogers/comment_add.html', {'form':form})
 
 
 

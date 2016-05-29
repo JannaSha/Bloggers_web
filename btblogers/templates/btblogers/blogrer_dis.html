@@ -21,7 +21,7 @@
     </div>
     <div class="icons-inst col-xs-9 col-sm-9 col-md-8 col-lg-8">
       <a href="{{ bloger.url_instagramm }}">
-        <img class="img-responsive link-icon" src="{% static 'img/instagram.jpg' %}" height="40" width="40"/>
+        <img class="img-responsive link-icon-inst" src="{% static 'img/instagram.jpg' %}" height="40" width="40"/>
       </a>
     </div>
 
@@ -37,7 +37,7 @@
         </div>
         <div class="col-xs-12 col-sm-12 col-md-12 col-lg-12">
           <h4 class="info-bloger">
-            {{ bloger.firs_name }} {{ bloger.sur_name }}, {% if bloger.age %} {{ bloger.age }} лет {% endif %}
+            {{ bloger.firs_name }} {{ bloger.sur_name }}, {% if bloger.age %} {{ bloger.age }} лет, {% endif %}
             {{ bloger.city }}, {{ bloger.country }}.
           </h4>
         </div>

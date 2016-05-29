@@ -1,0 +1,37 @@
+.comment-form {
+  font-family: 'Ubuntu', sans-serif;
+  color: #523555;
+  margin-left: 5%;
+}
+
+.ath-line {
+  width: 30%;
+  height: 30px;
+  display: block;
+}
+
+.com-line {
+  width: 80%;
+  height: 50px;
+  display: block;
+}
+
+.save {
+  font-size: 17px;
+  font-family: 'Ubuntu', sans-serif;
+  text-align: center;
+
+  border-width: medium;
+  border-color: #900273;
+  border-style: outset;
+  background: #900273;
+
+  color: #F5F4F6;
+  border-radius: 5px;
+  -moz-border-radius: 5px;
+  -webkit-border-radius: 5px;
+  -moz-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  -webkit-box-shadow: 0 1px 3px rgba(0,0,0,0.5);
+  text-shadow: 0 -1px 1px rgba(0,0,0,0.5);
+  cursor: pointer;
+}

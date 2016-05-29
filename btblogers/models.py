@@ -40,7 +40,7 @@ class Comments(models.Model):
     author = models.CharField(max_length=50, null=True, default=None)
     id_bloger = models.ForeignKey(DiscriptionBlogers, null=True, blank=True, default=None)
     date_comment = models.DateTimeField('Date of published')
- 
+
     def __unicode__(self):
         return self.comment
 
@@ -63,6 +63,9 @@ class Products(models.Model):
 
     def get_absolute_url(self):
         return "/btblogers/product/%i/" % self.id
+
+    def get_comment_url(self):
+        return "btblogers/comment/new/%i" % self.id
 
     def __unicode__(self):
         return self.name
