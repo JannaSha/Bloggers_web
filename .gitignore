@@ -1,0 +1,5 @@
+**/__pycache__/**
+**/.idlerc/**
+*.pyc
+**/virtualenv/**
+.DS_Store
